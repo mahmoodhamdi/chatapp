@@ -1,4 +1,4 @@
-import 'package:chatapp/features/views/welcome_screen.dart';
+import 'package:chatapp/features/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {

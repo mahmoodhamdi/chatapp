@@ -77,7 +77,7 @@ class _FormPasswordFieldState extends State<FormPasswordField> {
               },
             ),
             enabledBorder: const OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.white, width: 2),
+              borderSide: BorderSide(color: MyColors.mainText, width: 2),
               borderRadius: BorderRadius.all(Radius.circular(5)),
             ),
             disabledBorder: const OutlineInputBorder(

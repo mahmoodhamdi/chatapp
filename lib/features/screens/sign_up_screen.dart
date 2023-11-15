@@ -1,3 +1,4 @@
+import 'package:chatapp/features/screens/chat_screen.dart';
 import 'package:chatapp/widgets/custom_button.dart';
 import 'package:chatapp/widgets/form_email.dart';
 import 'package:chatapp/widgets/form_password.dart';
@@ -5,7 +6,7 @@ import 'package:flutter/material.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
-
+  static const String route = "/SignUpPage";
   @override
   State<SignUpPage> createState() => _SignUpPageState();
 }
@@ -43,15 +44,19 @@ class _SignUpPageState extends State<SignUpPage> {
               height: 30,
             ),
             FormEmailField(),
-            FormPasswordField(),
+            const SizedBox(
+              height: 10,
+            ),
+            const FormPasswordField(),
+            const SizedBox(
+              height: 10,
+            ),
             CustomButton(
               buttonTitle: "Sign Up",
               color: Colors.blueGrey,
-              onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SignUpPage(),
-                  )),
+              onPressed: () {
+                Navigator.pushNamed(context, ChatPage.route);
+              },
             ),
           ],
         ),

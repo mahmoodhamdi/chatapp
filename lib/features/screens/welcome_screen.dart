@@ -1,3 +1,4 @@
+import 'package:chatapp/constants/colors.dart';
 import 'package:chatapp/features/screens/sign_in_screen.dart';
 import 'package:chatapp/features/screens/sign_up_screen.dart';
 import 'package:chatapp/widgets/custom_button.dart';
@@ -5,10 +6,11 @@ import 'package:flutter/material.dart';
 
 class WelcomeView extends StatelessWidget {
   const WelcomeView({super.key});
-
+  static const String route = "/WelcomeView";
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Colors.white,
+    return Scaffold(
+      backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
@@ -37,23 +39,15 @@ class WelcomeView extends StatelessWidget {
               height: 30,
             ),
             CustomButton(
-              buttonTitle: "Sign In",
-              color: Colors.amber[800]!,
-              onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SignInPage(),
-                  )),
-            ),
+                buttonTitle: "Sign In",
+                color: MyColors.primaryLight,
+                onPressed: () =>
+                    Navigator.pushNamed(context, SignInPage.route)),
             CustomButton(
-              buttonTitle: "Sign Up",
-              color: Colors.blueGrey,
-              onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SignUpPage(),
-                  )),
-            ),
+                buttonTitle: "Sign Up",
+                color: Colors.blueGrey,
+                onPressed: () =>
+                    Navigator.pushNamed(context, SignUpPage.route)),
           ],
         ),
       ),

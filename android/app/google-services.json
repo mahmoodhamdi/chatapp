@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "960123738627",
+    "project_id": "my-com-cool-message-me-app",
+    "storage_bucket": "my-com-cool-message-me-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:960123738627:android:a85b32f8cc1d128a368c36",
+        "android_client_info": {
+          "package_name": "com.example.chatapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9kIai9MlWxAQfZAsxK3eh6PAJe9I6sdE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

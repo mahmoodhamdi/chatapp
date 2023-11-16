@@ -1,12 +1,12 @@
 // ignore_for_file: use_build_context_synchronously
 
-import 'package:chatapp/constants/colors.dart';
-import 'package:chatapp/features/screens/chat_screen.dart';
-import 'package:chatapp/widgets/custom_button.dart';
-import 'package:chatapp/widgets/form_email.dart';
-import 'package:chatapp/widgets/form_password.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
+  import 'package:chatapp/constants/colors.dart';
+  import 'package:chatapp/features/screens/chat_screen.dart';
+  import 'package:chatapp/widgets/custom_button.dart';
+  import 'package:chatapp/widgets/form_email.dart';
+  import 'package:chatapp/widgets/form_password.dart';
+  import 'package:firebase_auth/firebase_auth.dart';
+  import 'package:flutter/material.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});

@@ -1,7 +1,12 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:chatapp/constants/colors.dart';
 import 'package:chatapp/features/screens/chat_screen.dart';
 import 'package:chatapp/widgets/custom_button.dart';
 import 'package:chatapp/widgets/form_email.dart';
 import 'package:chatapp/widgets/form_password.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SignInPage extends StatefulWidget {
@@ -63,7 +68,42 @@ class _SignInPageState extends State<SignInPage> {
                   color: Colors.blueGrey,
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
-                      Navigator.pushNamed(context, ChatPage.route);
+                      void signIn(BuildContext context) async {
+                        try {
+                          final credential = await FirebaseAuth.instance
+                              .signInWithEmailAndPassword(
+                                  email: email, password: password);
+                          Navigator.pushNamed(context, ChatPage.route);
+                          AwesomeDialog(
+                                  context: context,
+                                  dialogType: DialogType.success,
+                                  animType: AnimType.rightSlide,
+                                  title: 'Welcome Back ❤️‍🔥',
+                                  buttonsBorderRadius: const BorderRadius.all(
+                                      Radius.circular(16)),
+                                  btnOkOnPress: () {})
+                              .show();
+                        } on FirebaseAuthException catch (e) {
+                          if (e.code == 'user-not-found') {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    padding: EdgeInsets.all(16),
+                                    backgroundColor: MyColors.primare,
+                                    content:
+                                        Text("No user found for that email.")));
+                          } else if (e.code == 'wrong-password') {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                const SnackBar(
+                                    padding: EdgeInsets.all(16),
+                                    backgroundColor: MyColors.primare,
+                                    content: Text(
+                                        "Wrong password provided for that user.")));
+                          }
+                        } catch (e) {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text(e.toString())));
+                        }
+                      }
                     }
                   }),
             ],

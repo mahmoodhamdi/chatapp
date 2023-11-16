@@ -32,7 +32,7 @@ class _FormPasswordFieldState extends State<FormPasswordField> {
           color: Colors.white,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         ),
-        child: TextFormField(
+        child: TextFormField( 
           onChanged:widget.onChanged,
           validator: (value) {
             if (value!.isEmpty) {

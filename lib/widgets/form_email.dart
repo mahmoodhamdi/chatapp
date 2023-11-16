@@ -4,10 +4,8 @@ import 'package:chatapp/constants/colors.dart';
 import 'package:flutter/material.dart';
   
 class FormEmailField extends StatelessWidget {
-  FormEmailField({super.key,});
-
-
-   String? email;
+  FormEmailField({super.key,this.onChanged});
+  void Function(String)? onChanged;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,9 +16,7 @@ class FormEmailField extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         ),
         child: TextFormField(
-          onChanged: (value) {
-            email = value;
-          },
+          onChanged:onChanged,
           validator: (value) {
             if (value!.isEmpty) {
               return "the Email is requierd";

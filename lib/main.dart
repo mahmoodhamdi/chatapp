@@ -2,8 +2,9 @@ import 'package:chatapp/features/screens/chat_screen.dart';
 import 'package:chatapp/features/screens/sign_in_screen.dart';
 import 'package:chatapp/features/screens/sign_up_screen.dart';
 import 'package:chatapp/features/screens/welcome_screen.dart';
-import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+
 import 'firebase_options.dart';
 
 void main() async {
@@ -11,7 +12,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Chat App',
       theme: ThemeData(primarySwatch: Colors.blue),
       routes: {
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
         SignInPage.route: (context) => const SignInPage(),
         ChatPage.route: (context) => const ChatPage(),
       },
-      initialRoute: WelcomeView.route ,
+      initialRoute: WelcomeView.route,
     );
   }
 }

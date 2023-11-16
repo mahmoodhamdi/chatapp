@@ -4,16 +4,14 @@ import 'package:chatapp/constants/colors.dart';
 import 'package:flutter/material.dart';
 
 class FormPasswordField extends StatefulWidget {
-  const FormPasswordField({
-    super.key,
-  });
-
-  static String? password;
+  FormPasswordField({super.key, this.onChanged});
+  void Function(String)? onChanged;
   @override
   State<FormPasswordField> createState() => _FormPasswordFieldState();
 }
 
 class _FormPasswordFieldState extends State<FormPasswordField> {
+  _FormPasswordFieldState();
   bool isObscure = true;
 
   Widget? lock(bool isObscure) {
@@ -35,9 +33,7 @@ class _FormPasswordFieldState extends State<FormPasswordField> {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(5)),
         ),
         child: TextFormField(
-          onChanged: (value) {
-            FormPasswordField.password = value;
-          },
+          onChanged:widget.onChanged,
           validator: (value) {
             if (value!.isEmpty) {
               return 'Please enter your password';
